@@ -38,7 +38,7 @@ JHtml::_('behavior.caption');
 	|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') ); ?>
 
 	<?php if (!$useDefList && $this->print) : ?>
-		<div id="pop-print" class="btn hidden-print">
+		<div id="pop-print" class="btn btn-default hidden-print">
 			<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
 		</div>
 		<div class="clearfix"> </div>
@@ -67,7 +67,7 @@ JHtml::_('behavior.caption');
 		<?php endif; ?>
 	<?php else : ?>
 		<?php if ($useDefList) : ?>
-			<div id="pop-print" class="btn hidden-print">
+			<div id="pop-print" class="btn btn-default hidden-print">
 				<?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
 			</div>
 		<?php endif; ?>
@@ -134,7 +134,7 @@ JHtml::_('behavior.caption');
 	<?php // Optional teaser intro text for guests ?>
 	<?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
 	<?php echo JLayoutHelper::render('joomla.content.intro_image', $this->item); ?>
-	<?php echo JHtml::_('content.prepare', $this->item->introtext); ?>	
+	<?php echo JHtml::_('content.prepare', $this->item->introtext); ?>
 	<?php // Optional link to let them register to see the whole article. ?>
 	<?php if ($params->get('show_readmore') && $this->item->fulltext != null) : ?>
 	<?php $menu = JFactory::getApplication()->getMenu(); ?>
