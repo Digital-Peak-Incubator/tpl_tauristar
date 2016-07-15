@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.5" type="template" client="site" method="upgrade">
-	<name>Tauristar</name>
+	<name>TPL_TAURISTAR</name>
 	<creationDate>June 2016</creationDate>
-	<author>Joomla</author>
-	<authorEmail>info@joomla.org</authorEmail>
+	<author>Joomla! Project</author>
+	<authorEmail>admin@joomla.org</authorEmail>
 	<authorUrl>http://www.joomla.org</authorUrl>
-	<copyright>(C) 2012 - 2016 Digital Peak. All rights reserved.
-	</copyright>
-	<license>GNU General Public License</license>
-	<version>2.0</version>
+	<copyright>Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>0.1</version>
 	<description>TPL_TAURISTAR_XML_DESCRIPTION</description>
 	<files>
-		<filename>component.php</filename>
 		<filename>favicon.ico</filename>
 		<filename>index.php</filename>
 		<filename>templateDetails.xml</filename>
@@ -19,7 +17,7 @@
 		<folder>js</folder>
 		<folder>language</folder>
 		<folder>less</folder>
-		<folder>vendor</folder>
+		<folder>css</folder>
 	</files>
 	<positions>
 		<position>logo</position>
@@ -31,21 +29,38 @@
 		<position>bottom</position>
 		<position>footer</position>
 	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_tauristar.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_tauristar.sys.ini</language>
+	</languages>
 	<config>
 		<fields name="params">
-			<fieldset name="basic">
-			</fieldset>
 			<fieldset name="advanced">
-				<field name="mode" type="list" class="" default="2"
-					label="TPL_TAURISTAR_MODE_LABEL" description="TPL_TAURISTAR_MODE_DESC">
+				<field
+					name="mode"
+					type="list"
+					label="TPL_TAURISTAR_MODE_LABEL"
+					description="TPL_TAURISTAR_MODE_DESC"
+					default="2"
+				>
 					<option value="1">TPL_TAURISTAR_MODE_CSS</option>
 					<option value="2">TPL_TAURISTAR_MODE_PHP_LESS</option>
 					<option value="3">TPL_TAURISTAR_MODE_JS_LESS</option>
 				</field>
-				<field name="additional-css" class="" type="textarea" default=""
-					rows="50" cols="50" label="TPL_TAURISTAR_ADDITIONAL_CSS_LABEL"
-					description="TPL_TAURISTAR_ADDITIONAL_CSS_DESC" />
-				<field type="hidden" name="framework" default="bs3" />
+				<field
+					name="additional-css"
+					type="textarea"
+					label="TPL_TAURISTAR_ADDITIONAL_CSS_LABEL"
+					description="TPL_TAURISTAR_ADDITIONAL_CSS_DESC"
+					default=""
+					rows="50"
+					cols="50"
+				/>
+				<field
+					type="hidden"
+					name="framework"
+					default="bs3"
+				/>
 			</fieldset>
 		</fields>
 	</config>
