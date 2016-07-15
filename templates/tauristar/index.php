@@ -31,6 +31,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 			{
 				TauristarHelper::compile();
 			}
+
 			$document->addStyleSheet(JUri::base() . $cssFile);
 			break;
 		case 2:
