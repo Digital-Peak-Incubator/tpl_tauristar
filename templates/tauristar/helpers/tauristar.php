@@ -20,7 +20,7 @@ class TauristarHelper
 	/**
 	 * Adds the correct script to the document.
 	 *
-	 * @param   integer  $mode  The mode: 1 = compressed, 2 = expanded
+	 * @param   integer  $mode  The mode: 1 = production, 2 = developer
 	 *
 	 * @return   void
 	 */
