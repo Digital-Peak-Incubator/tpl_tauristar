@@ -92,6 +92,10 @@ Desktop.ini
 /libraries/vendor/leafo/lessphp/Makefile
 /libraries/vendor/leafo/lessphp/package.sh
 /libraries/vendor/leafo/lessphp/README.md
+/libraries/vendor/leafo/scssphp/bin/pscss
+/libraries/vendor/leafo/scssphp/composer.json
+/libraries/vendor/leafo/scssphp/README.md
+/libraries/vendor/bin/pscss
 /libraries/vendor/paragonie/random_compat/.gitignore
 /libraries/vendor/paragonie/random_compat/.scrutinizer.yml
 /libraries/vendor/paragonie/random_compat/.travis.yml
