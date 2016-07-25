@@ -15,6 +15,7 @@
 /configuration.php
 /.htaccess
 /web.config
+/templates/tauristar/css
 
 # Test Related Files #
 /phpunit.xml

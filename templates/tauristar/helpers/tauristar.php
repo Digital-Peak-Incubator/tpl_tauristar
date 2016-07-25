@@ -66,6 +66,7 @@ class TauristarHelper
 					$content,
 					array(
 						JPATH_THEMES . '/tauristar/scss',
+						JPATH_ROOT . '/media/jui/scss',
 						JPATH_ROOT . '/media/jui/bs3/scss',
 						JPATH_ROOT . '/media/jui/fa4/scss'
 					),
