@@ -10,6 +10,7 @@ return array(
     'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
     'Symfony\\Polyfill\\Php55\\' => array($vendorDir . '/symfony/polyfill-php55'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
+    'Leafo\\ScssPhp\\' => array($vendorDir . '/leafo/scssphp/src'),
     'Joomla\\Utilities\\Tests\\' => array($vendorDir . '/joomla/utilities/Tests'),
     'Joomla\\Utilities\\' => array($vendorDir . '/joomla/utilities/src'),
     'Joomla\\Uri\\Tests\\' => array($vendorDir . '/joomla/uri/Tests'),
@@ -26,4 +27,5 @@ return array(
     'Joomla\\DI\\Tests\\' => array($vendorDir . '/joomla/di/Tests'),
     'Joomla\\DI\\' => array($vendorDir . '/joomla/di/src'),
     'Joomla\\Application\\' => array($vendorDir . '/joomla/application/src'),
+    'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
 );

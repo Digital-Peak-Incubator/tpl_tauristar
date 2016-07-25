@@ -20,32 +20,8 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-	<?php
-	$document = JFactory::getDocument();
-	$cssFile  = '/templates/' . $this->template . '/css/template.css';
-
-	switch ($params->get('mode', 2))
-	{
-		case 1:
-			if (!JFile::exists(JPATH_BASE . $cssFile))
-			{
-				TauristarHelper::compile();
-			}
-
-			$document->addStyleSheet(JUri::base() . $cssFile);
-			break;
-		case 2:
-			TauristarHelper::compile();
-			$document->addStyleSheet(JUri::base() . $cssFile);
-			break;
-		case 3:
-			$document->addScript(JUri::base() . '/templates/' . $this->template . '/js/less.js');
-			echo '<link rel="stylesheet/less" type="text/css" href="' . JUri::base() . '/templates/' . $this->template . '/less/template.less" />';
-			echo '<script type="text/javascript">less = { env: "development"};</script>';
-			break;
-	}
-	?>
-	<jdoc:include type="head" />
+		<?php TauristarHelper::addCSS($params->get('mode', 1)); ?>
+		<jdoc:include type="head" />
 	</head>
 	<body>
 		<div id="header">
@@ -125,7 +101,10 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				<?php if ($this->countModules('footer')) : ?>
 					<jdoc:include type="modules" name="footer" style="xhtml" />
 				<?php endif; ?>
-				<p>&copy; <?php echo date('Y'); ?> <?php echo JFactory::getApplication()->get('sitename'); ?></p>
+				<p>
+					&copy; <?php echo date('Y'); ?> <?php echo JFactory::getApplication()->get('sitename'); ?>
+					<i class="fa fa-joomla" aria-hidden="true"></i>
+				</p>
 			</div>
 		</footer>
 	</body>
