@@ -34,13 +34,13 @@ class TauristarHelper
 			case 1:
 				if (!JFile::exists(JPATH_BASE . $cssFile))
 				{
-					TauristarHelper::compile($mode);
+					self::compile($mode);
 				}
 
 				$document->addStyleSheet(JUri::base() . $cssFile);
 				break;
 			case 2:
-				TauristarHelper::compile($mode);
+				self::compile($mode);
 				$document->addStyleSheet(JUri::base() . $cssFile);
 				break;
 		}

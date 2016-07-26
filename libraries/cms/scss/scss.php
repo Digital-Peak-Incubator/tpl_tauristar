@@ -27,14 +27,15 @@ class JScss
 	/**
 	 * Compiles the given Scss string into CSS.
 	 *
-	 * @param   string   $string  Scss string to parse.
-	 * @param   integer  $mode    The mode: 1 = compressed, 2 = expanded
+	 * @param   string   $string       Scss string to parse.
+	 * @param   array    $importPaths  The paths to use for import
+	 * @param   integer  $mode         The mode: 1 = compressed, 2 = expanded
 	 *
 	 * @return  string   $out     The compiled css output.
 	 */
 	public function compile($string, array $importPaths, $mode = 1)
 	{
-		$scss = new Compiler();
+		$scss = new Compiler;
 		$scss->setImportPaths($importPaths);
 		$scss->setFormatter($mode == 1 ? Crunched::class : Expanded::class);
 
