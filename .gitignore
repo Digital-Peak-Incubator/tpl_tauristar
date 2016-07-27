@@ -16,6 +16,7 @@
 /.htaccess
 /web.config
 /templates/tauristar/css
+/templates/tauristar/scss/user-variables.scss
 
 # Test Related Files #
 /phpunit.xml

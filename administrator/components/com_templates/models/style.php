@@ -413,11 +413,15 @@ class TemplatesModelStyle extends JModelAdmin
 
 		jimport('joomla.filesystem.path');
 
-		$formFile = JPath::clean($client->path . '/templates/' . $template . '/templateDetails.xml');
+		$templateRoot = JPath::clean($client->path . '/templates/' . $template);
+		$formFile = $templateRoot . '/templateDetails.xml';
 
 		// Load the core and/or local language file(s).
 			$lang->load('tpl_' . $template, $client->path, null, false, true)
 		||	$lang->load('tpl_' . $template, $client->path . '/templates/' . $template, null, false, true);
+
+		$scss = new JScss;
+		$scss->loadVariablesIntoForm($form, $templateRoot . '/scss/variables.scss', $templateRoot . '/scss/user-variables.scss');
 
 		if (file_exists($formFile))
 		{
@@ -498,6 +502,22 @@ class TemplatesModelStyle extends JModelAdmin
 			$data['title']    = $this->generateNewTitle(null, null, $data['title']);
 			$data['home']     = 0;
 			$data['assigned'] = '';
+		}
+
+		$scssVariablesRoot = JPath::clean(str_replace('/administrator', '', JPATH_THEMES) . '/' . $data['template'] . '/scss/');
+		$scss = new JScss;
+		$variables = $scss->dumpVariablesIntoFile($data, $scssVariablesRoot . 'variables.scss', $scssVariablesRoot . 'user-variables.scss');
+
+		foreach ($variables as $variable)
+		{
+			if (key_exists('params', $data))
+			{
+				unset($data['params'][$variable]);
+			}
+			else
+			{
+				unset($data[$variable]);
+			}
 		}
 
 		// Bind the data.
