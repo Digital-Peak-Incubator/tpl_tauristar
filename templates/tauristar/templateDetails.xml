@@ -16,7 +16,7 @@
 		<folder>helpers</folder>
 		<folder>js</folder>
 		<folder>language</folder>
-		<folder>less</folder>
+		<folder>scss</folder>
 		<folder>css</folder>
 	</files>
 	<positions>
@@ -41,11 +41,10 @@
 					type="list"
 					label="TPL_TAURISTAR_MODE_LABEL"
 					description="TPL_TAURISTAR_MODE_DESC"
-					default="2"
+					default="1"
 				>
-					<option value="1">TPL_TAURISTAR_MODE_CSS</option>
-					<option value="2">TPL_TAURISTAR_MODE_PHP_LESS</option>
-					<option value="3">TPL_TAURISTAR_MODE_JS_LESS</option>
+					<option value="1">TPL_TAURISTAR_MODE_PRODUCTION</option>
+					<option value="2">TPL_TAURISTAR_MODE_DEVELOPER</option>
 				</field>
 				<field
 					name="additional-css"

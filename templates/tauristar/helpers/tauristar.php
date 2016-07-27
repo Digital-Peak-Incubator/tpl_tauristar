@@ -18,31 +18,60 @@ class TauristarHelper
 {
 
 	/**
-	 * Compiles the template.less file.
+	 * Adds the correct script to the document.
+	 *
+	 * @param   integer  $mode  The mode: 1 = production, 2 = developer
 	 *
 	 * @return   void
 	 */
-	public static function compile()
+	public static function addCSS($mode)
 	{
-		JLoader::import('joomla.filesystem.folder');
-		JLoader::import('joomla.filesystem.file');
+		$document = JFactory::getDocument();
+		$cssFile  = '/templates/tauristar/css/template.css';
+
+		switch ($mode)
+		{
+			case 1:
+				if (!JFile::exists(JPATH_BASE . $cssFile))
+				{
+					self::compile($mode);
+				}
+
+				$document->addStyleSheet(JUri::base() . $cssFile);
+				break;
+			case 2:
+				self::compile($mode);
+				$document->addStyleSheet(JUri::base() . $cssFile);
+				break;
+		}
+	}
+	/**
+	 * Compiles the template.scss file.
+	 *
+	 * @param   integer  $mode  The mode: 1 = compressed, 2 = expanded
+	 *
+	 * @return   void
+	 */
+	public static function compile($mode)
+	{
 		try
 		{
-			JLoader::import('lessphp.Less', JPATH_THEMES . '/tauristar/helpers');
-			$parser = new Less_Parser(
-				array(
-					'relativeUrls' => false
-				)
-			);
-
-			// Setting the directorys of joomla bootsrap path
-			$parser->SetImportDirs(
+			$content = '@import "' . 'template.scss";';
+			if (JFile::exists(JPATH_THEMES . '/tauristar/scss/custom.scs'))
+			{
+				$content = PHP_EOL . '@import "' . 'custom.scss";';
+			}
+			$scss = new JScss;
+			$css = $scss->compile(
+					$content,
 					array(
-					JPATH_ROOT . '/media/jui/bs3/' => '../../../media/jui/bs3/'
-				)
+						JPATH_THEMES . '/tauristar/scss',
+						JPATH_ROOT . '/media/jui/scss',
+						JPATH_ROOT . '/media/jui/bs3/scss',
+						JPATH_ROOT . '/media/jui/fa4/scss'
+					),
+					$mode
 			);
-			$parser->parseFile(JPATH_THEMES . '/tauristar/less/template.less', JUri::base());
-			$css = $parser->getCss();
 
 			// Writting the css content to the cache file
 			JFile::write(JPATH_THEMES . '/tauristar/css/template.css', $css);
