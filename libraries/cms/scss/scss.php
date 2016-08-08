@@ -13,6 +13,7 @@ defined('JPATH_PLATFORM') or die;
 use Leafo\ScssPhp\Compiler;
 use Leafo\ScssPhp\Formatter\Expanded;
 use Leafo\ScssPhp\Formatter\Crunched;
+
 use Joomla\Registry\Registry;
 
 /**
@@ -35,14 +36,17 @@ class JScss
 	public function getVariablesFromParams(Registry $data)
 	{
 		$content = '';
+
 		foreach ($data->toArray() as $key => $value)
 		{
 			if (strpos($key, '$') !== 0)
 			{
 				continue;
 			}
+
 			$content .= $key . ': ' . $value . ';' . PHP_EOL;
 		}
+
 		return $content;
 	}
 
