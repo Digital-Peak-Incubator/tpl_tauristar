@@ -65,7 +65,7 @@ class TauristarHelper
 			{
 				$content .= PHP_EOL . '@import "' . 'custom.scss";';
 			}
-			$scss = new JScss();
+			$scss = new JScss;
 			$content .= PHP_EOL . $scss->getVariablesFromParams($params) . PHP_EOL;
 			$content .= '@import "' . 'template.scss";';
 
@@ -74,7 +74,8 @@ class TauristarHelper
 				JFactory::getApplication()->enqueueMessage(nl2br($content));
 			}
 
-			$css = $scss->compile($content,
+			$css = $scss->compile(
+				$content,
 				array(
 						JPATH_THEMES . '/tauristar/scss',
 						JPATH_ROOT . '/media/jui/scss',

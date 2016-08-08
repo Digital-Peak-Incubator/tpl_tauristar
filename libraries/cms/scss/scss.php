@@ -28,7 +28,7 @@ class JScss
 	 * Creates a scss variables string from the given data. Every parameter
 	 * which starts with a $ sign will be trated as a scss variable.
 	 *
-	 * @param   Registry  $data     A registry object to get the variables from
+	 * @param   Registry  $data  A registry object to get the variables from
 	 *
 	 * @return  string    $content  The variables as scss string
 	 */
