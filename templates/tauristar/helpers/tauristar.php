@@ -69,12 +69,14 @@ class TauristarHelper
 			$content .= PHP_EOL . $scss->getVariablesFromParams($params) . PHP_EOL;
 			$content .= '@import "' . 'template.scss";';
 			$css = $scss->compile($content,
-					array(
-							JPATH_THEMES . '/tauristar/scss',
-							JPATH_ROOT . '/media/jui/scss',
-							JPATH_ROOT . '/media/jui/bs3/scss',
-							JPATH_ROOT . '/media/jui/fa4/scss'
-					), $params->get('mode', 1));
+				array(
+						JPATH_THEMES . '/tauristar/scss',
+						JPATH_ROOT . '/media/jui/scss',
+						JPATH_ROOT . '/media/jui/bs3/scss',
+						JPATH_ROOT . '/media/jui/fa4/scss'
+				),
+				$params->get('mode', 1)
+			);
 
 			// Writting the css content to the cache file
 			JFile::write(JPATH_THEMES . '/tauristar/css/template.css', $css);
