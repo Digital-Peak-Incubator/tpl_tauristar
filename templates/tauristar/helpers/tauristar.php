@@ -18,13 +18,14 @@ use Joomla\Registry\Registry;
  */
 class TauristarHelper
 {
-
 	/**
 	 * Adds the correct script to the document.
 	 *
 	 * @param   Registry  $params  The parameters form the template
 	 *
 	 * @return  void
+	 *
+	 * @since   3.8
 	 */
 	public static function addCSS(Registry $params)
 	{
@@ -55,16 +56,20 @@ class TauristarHelper
 	 * @param   Registry  $params  The parameters form the template
 	 *
 	 * @return  void
+	 *
+	 * @since   3.8
 	 */
 	public static function compile(Registry $params)
 	{
 		try
 		{
 			$content = '';
+
 			if (JFile::exists(JPATH_THEMES . '/tauristar/scss/custom.scs'))
 			{
 				$content .= PHP_EOL . '@import "' . 'custom.scss";';
 			}
+
 			$scss = new JScss;
 			$content .= PHP_EOL . $scss->getVariablesFromParams($params) . PHP_EOL;
 			$content .= '@import "' . 'template.scss";';
@@ -77,10 +82,10 @@ class TauristarHelper
 			$css = $scss->compile(
 				$content,
 				array(
-						JPATH_THEMES . '/tauristar/scss',
-						JPATH_ROOT . '/media/jui/scss',
-						JPATH_ROOT . '/media/jui/bs3/scss',
-						JPATH_ROOT . '/media/jui/fa4/scss'
+					JPATH_THEMES . '/tauristar/scss',
+					JPATH_ROOT . '/media/jui/scss',
+					JPATH_ROOT . '/media/jui/bs3/scss',
+					JPATH_ROOT . '/media/jui/fa4/scss',
 				),
 				$params->get('mode', 1)
 			);
