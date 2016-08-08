@@ -107,5 +107,6 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</p>
 			</div>
 		</footer>
+		<jdoc:include type="modules" name="debug" style="none" />
 	</body>
 </html>
