@@ -5,7 +5,3 @@ $fa-font-path: "../../../media/jui/fa4/fonts";
 
 $icomoon-font-path: "../../../media/jui/fonts";
 @import "icomoon";
-
-.alert-message {
-  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
-}
