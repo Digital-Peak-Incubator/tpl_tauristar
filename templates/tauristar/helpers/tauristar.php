@@ -74,11 +74,6 @@ class TauristarHelper
 			$content .= PHP_EOL . $scss->getVariablesFromParams($params) . PHP_EOL;
 			$content .= '@import "' . 'template.scss";';
 
-			if (JDEBUG)
-			{
-				JFactory::getApplication()->enqueueMessage(nl2br($content));
-			}
-
 			$css = $scss->compile(
 				$content,
 				array(
