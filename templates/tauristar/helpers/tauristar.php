@@ -56,11 +56,16 @@ class TauristarHelper
 	{
 		try
 		{
-			$content = '@import "' . 'template.scss";';
-			if (JFile::exists(JPATH_THEMES . '/tauristar/scss/custom.scs'))
+			$content = '@import "' . 'variables.scss";' . PHP_EOL;
+			if (JFile::exists(JPATH_THEMES . '/tauristar/scss/user-variables.scss'))
 			{
-				$content = PHP_EOL . '@import "' . 'custom.scss";';
+				$content .= '@import "user-variables.scss";' . PHP_EOL;
 			}
+			if (JFile::exists(JPATH_THEMES . '/tauristar/scss/custom.scss'))
+			{
+				$content .= '@import "custom.scss";' . PHP_EOL;
+			}
+			$content .= '@import "template.scss";';
 			$scss = new JScss;
 			$css = $scss->compile(
 					$content,
