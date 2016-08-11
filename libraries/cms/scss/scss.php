@@ -14,6 +14,8 @@ use Leafo\ScssPhp\Compiler;
 use Leafo\ScssPhp\Formatter\Expanded;
 use Leafo\ScssPhp\Formatter\Crunched;
 
+use Joomla\Registry\Registry;
+
 /**
  * Scss compiler
  *
@@ -23,6 +25,30 @@ use Leafo\ScssPhp\Formatter\Crunched;
  */
 class JScss
 {
+	/**
+	 * Creates a scss variables string from the given data. Every parameter
+	 * which starts with a $ sign will be trated as a scss variable.
+	 *
+	 * @param   Registry  $data  A registry object to get the variables from
+	 *
+	 * @return  string    $content  The variables as scss string
+	 */
+	public function getVariablesFromParams(Registry $data)
+	{
+		$content = '';
+
+		foreach ($data->toArray() as $key => $value)
+		{
+			if (strpos($key, '$') !== 0)
+			{
+				continue;
+			}
+
+			$content .= $key . ': ' . $value . ';' . PHP_EOL;
+		}
+
+		return $content;
+	}
 
 	/**
 	 * Compiles the given Scss string into CSS.
