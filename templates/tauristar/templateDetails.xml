@@ -74,14 +74,13 @@
 				<field
 					name="modules"
 					type="subform"
+					label="TPL_TAURISTAR_DYNAMIC_MODULE"
 					formsource="templates/tauristar/templateDetails-modules.xml"
 					min="0"
 					max="6"
 					multiple="true"
 					layout="joomla.form.field.subform.repeatable-table"
 					groupByFieldset="true"
-					label="TPL_TAURISTAR_DYNAMIC_MODULE"
-					description=""
 				/>
 			</fieldset>
 		</fields>

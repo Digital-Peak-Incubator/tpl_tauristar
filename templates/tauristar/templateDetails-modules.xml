@@ -4,8 +4,8 @@
 		<field
 			name="position"
 			type="text"
+			label="TPL_TAURISTAR_POSITION_NAME"
 			default=""
-			label="Position Name"
 		/>
 	</fieldset>
 </form>
