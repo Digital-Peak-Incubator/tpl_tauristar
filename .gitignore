@@ -20,6 +20,9 @@
 # Test Related Files #
 /phpunit.xml
 
+# Node modules #
+node_modules/
+
 # phpDocumentor Logs #
 phpdoc-*
 
