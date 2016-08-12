@@ -465,7 +465,7 @@ class JPaginationTest extends TestCase
 	{
 		return array(
 			array(100, 0, 20, false,
-				"<select id=\"limit\" name=\"limit\" class=\"inputbox input-mini\" size=\"1\" onchange=\"this.form.submit()\">\n"
+				"<select id=\"limit\" name=\"limit\" class=\"inputbox input-mini form-control\" size=\"1\" onchange=\"this.form.submit()\">\n"
 				. "\t<option value=\"5\">5</option>\n"
 				. "\t<option value=\"10\">10</option>\n"
 				. "\t<option value=\"15\">15</option>\n"
@@ -478,7 +478,7 @@ class JPaginationTest extends TestCase
 				. "</select>\n"
 			),
 			array(100, 0, 20, true,
-				"<select id=\"limit\" name=\"limit\" class=\"inputbox input-mini\" size=\"1\" onchange=\"Joomla.submitform();\">\n"
+				"<select id=\"limit\" name=\"limit\" class=\"inputbox input-mini form-control\" size=\"1\" onchange=\"Joomla.submitform();\">\n"
 				. "\t<option value=\"5\">5</option>\n"
 				. "\t<option value=\"10\">10</option>\n"
 				. "\t<option value=\"15\">15</option>\n"
