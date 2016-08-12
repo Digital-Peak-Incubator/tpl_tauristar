@@ -47,7 +47,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</nav>
 			</div>
 		</div>
-		<?php foreach ($params->get('modules') as $module) : ?>
+		<?php foreach ($params->get('modules', array()) as $module) : ?>
 			<?php if ($this->countModules($module->position)) : ?>
 				<div class="container container-<?php echo $module->position; ?>'">
 					<div class="row row-<?php echo $module->position; ?>">
