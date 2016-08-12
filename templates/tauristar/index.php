@@ -47,6 +47,21 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</nav>
 			</div>
 		</div>
+		<?php
+		foreach ($params->get('modules') as $module)
+		{
+			if ($this->countModules($module->position))
+			{
+				echo '<div class="container container-'.$module->position.'">';
+					echo '<div class="row row-'.$module->position.'">';
+						echo '<div class="col-md-12 col-'.$module->position.'">';
+							echo '<jdoc:include type="modules" name="'.$module->position.'" style="xhtml" />';
+						echo '</div>';
+					echo '</div>';
+				echo '</div>';
+			}
+		}
+		?>
 		<?php if ($this->countModules('top')) : ?>
 			<div id="top">
 				<div class="container">

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="section1" label="TPL_TAURISTAR_SETTINGS">
+		<field
+			name="position"
+			type="text"
+			default=""
+			label="Position Name"
+		/>
+	</fieldset>
+</form>
