@@ -38,7 +38,7 @@
 			<fieldset name="scaffolding" label="TPL_TAURISTAR_SCAFFOLDING_FIELDSET_LABEL">
 				<field
 					name="$body-bg"
-					type="text"
+					type="color"
 					label="TPL_TAURISTAR_SCSS_VARIABLE_BODY_BG_LABEL"
 					description="TPL_TAURISTAR_SCSS_VARIABLE_BODY_BG_DESC"
 					default="#fff"
