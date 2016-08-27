@@ -28,29 +28,23 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 
 	<body>
 
-	<?php // begin header section / add conditionals for layout options ?>
 		<header id="header">
 			<div class="container">
 
-			<?php // header modules ?>
 				<?php if ($this->countModules('header')) :?>
 				<div class="container">
 					<div class="row">
 						<jdoc:include type="modules" name="header" style="xhtml" />
 					</div>
 				<?php endif; ?>
-			<?php // end navigation ?>
 	
-			<?php // logo position ?>
 				<?php if ($this->countModules('logo')) :?>
 				<div class="container">
 					<div class="row">
 						<jdoc:include type="modules" name="logo" style="xhtml" />
 					</div>
 				<?php endif; ?>
-			<?php // end navigation ?>
 	
-			<?php // navigation ?>
 				<?php if ($this->countModules('navigation')) : ?>
 	
 					<nav class="navigation" role="navigation">
@@ -58,13 +52,10 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 					</nav>
 	
 				<?php endif; ?>
-			<?php // end navigation ?>
 
-			</div><?php // end container ?>
+			</div>
 		</header>
-	<?php // end header & conditionals ?>	
 	
-	<?php // top section ?>	
 		<?php if ($this->countModules('top')) :?>
 			<section id="top">
 				<div class="container">
@@ -74,9 +65,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</div>
 			</section>
 		<?php endif; ?>
-	<?php // end top section ?>	
 		
-	<?php // feature section ?>	
 		<?php if ($this->countModules('feature')) :?>
 			<section id="feature">
 				<div class="container">
@@ -86,19 +75,14 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</div>
 			</section>
 		<?php endif; ?>
-	<?php // end feature section ?>	
 	
-	<?php // main article & component area ?>
 		<section id="main-section">
 			<div class="container">
 			
-			<?php // if (message) : ?>
 				<div id="system-messages">
 					<jdoc:include type="message" />
 				</div>
-			<?php // end system-message ?>
 				
-			<?php // breadcrumbs ?>
 				<?php if ($this->countModules('breadcrumbs')) : ?>
 					<div id="breadcrumbs">
 						<div class="container">
@@ -106,9 +90,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 						</div>
 					</div>
 				<?php endif; ?>
-			<?php // end breadcrumbs ?>
 	
-			<?php // sidebar-left ?>
 				<?php if ($this->countModules('sidebar-left')) : ?>
 					<aside id="sidebar-left">
 						<div class="container">
@@ -116,9 +98,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 						</div>
 					</aside>
 				<?php endif; ?>
-			<?php // end sidebar-left ?>
 	
-			<?php // above-content ?>
 				<?php if ($this->countModules('above-content')) :?>
 					<section id="above-content">
 						<div class="container">
@@ -128,17 +108,13 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 						</div>
 					</section>
 				<?php endif; ?>
-			<?php // end above-content ?>
 				
-			<?php // Begin Content / Component : add main layout conditionals ?>
 				<main id="content" role="main" class="">
 					<article>
 						<jdoc:include type="component" />
 					</article>
 				</main>
-			<?php // End Content : endif ?>
 				
-			<?php // below-content ?>
 				<?php if ($this->countModules('below-content')) :?>
 					<section id="below-content">
 						<div class="container">
@@ -148,9 +124,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 						</div>
 					</section>
 				<?php endif; ?>
-			<?php // end below-content ?>
 	
-			<?php // sidebar-right ?>
 				<?php if ($this->countModules('sidebar-right')) : ?>
 					<aside id="sidebar-right">
 						<div class="container">
@@ -158,13 +132,10 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 						</div>
 					</aside>
 				<?php endif; ?>
-			<?php // end sidebar-right ?>
 	
 			</div>
 		</section>
-	<?php // end main-section ?>
 	
-	<?php // sub-feature section ?>	
 		<?php if ($this->countModules('sub-feature')) : ?>
 			<section id="sub-feature">
 				<div class="container">
@@ -174,9 +145,7 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</div>
 			</section>
 		<?php endif; ?>
-	<?php // end sub-feature section ?>	
 	
-	<?php // bottom section ?>		
 		<?php if ($this->countModules('bottom')) : ?>
 			<section id="bottom">
 				<div class="container">
@@ -186,28 +155,21 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				</div>
 			</section>
 		<?php endif; ?>
-	<?php // end bottom section ?>
 	
-	<?php // begin footer section : add layout conditionals ?>
 		<footer id="footer">
 			<div class="container">
 				
-			<?php // footer modules ?>
 				<?php if ($this->countModules('footer')) : ?>
 					<jdoc:include type="modules" name="footer" style="xhtml" />
 				<?php endif; ?>
-			<?php // end footer modules ?>
 			
-			<?php // copyright position / if: copyright ?>
 				<div id="copyright">
 					&copy; <?php echo date('Y'); ?> <?php echo JFactory::getApplication()->get('sitename'); ?>
 					<i class="fa fa-joomla" aria-hidden="true"></i>
 				</div>
-			<?php // endif & copyright?>
 				
 			</div>
 		</footer>
-		<?php // end footer section ?>
 	
 	</body>
 	
