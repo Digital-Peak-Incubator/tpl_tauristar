@@ -72,9 +72,42 @@
 			</fieldset>
 			<fieldset name="modules"  label="TPL_TAURISTAR_MODULES_FIELDSET_LABEL">
 				<field
-					name="modules"
+					name="top"
 					type="subform"
-					label="TPL_TAURISTAR_DYNAMIC_MODULE"
+					label="TPL_TAURISTAR_MODULE_POSITION_TOP"
+					formsource="templates/tauristar/templateDetails-modules.xml"
+					min="0"
+					max="6"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable-table"
+					groupByFieldset="true"
+				/>
+				<field
+					name="sidebar-left"
+					type="subform"
+					label="TPL_TAURISTAR_MODULE_POSITION_SIDEBAR_LEFT"
+					formsource="templates/tauristar/templateDetails-modules.xml"
+					min="0"
+					max="6"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable-table"
+					groupByFieldset="true"
+				/>
+				<field
+					name="sidebar-right"
+					type="subform"
+					label="TPL_TAURISTAR_MODULE_POSITION_SIDEBAR_RIGHT"
+					formsource="templates/tauristar/templateDetails-modules.xml"
+					min="0"
+					max="6"
+					multiple="true"
+					layout="joomla.form.field.subform.repeatable-table"
+					groupByFieldset="true"
+				/>
+				<field
+					name="bottom"
+					type="subform"
+					label="TPL_TAURISTAR_MODULE_POSITION_BOTTOM"
 					formsource="templates/tauristar/templateDetails-modules.xml"
 					min="0"
 					max="6"

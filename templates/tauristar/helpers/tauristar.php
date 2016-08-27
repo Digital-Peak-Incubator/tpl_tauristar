@@ -19,6 +19,34 @@ use Joomla\Registry\Registry;
 class TauristarHelper
 {
 	/**
+	 * Creates an output to be placed inside a template to include the positions.
+	 *
+	 * @param   array  $modulePositions  The mdule positions
+	 *
+	 * @return  string
+	 *
+	 * @since   3.8
+	 */
+	public static function getDynamicPosition($modulePositions)
+	{
+		$document = JFactory::getDocument();
+
+		$buffer = '';
+		foreach ($modulePositions as $module)
+		{
+			if ($document->countModules($module->position))
+			{
+				$buffer .= '<div class="container' .
+								($module->width == 'fluid' ? '-fluid' : '') .
+								' container-' . $module->position . '">';
+				$buffer .= '<jdoc:include type="modules" name="' . $module->position . '" columns="' . $module->columns . '" style="cell" />';
+				$buffer .= '</div>';
+			}
+		}
+		return $buffer;
+	}
+
+	/**
 	 * Adds the correct script to the document.
 	 *
 	 * @param   Registry  $params  The parameters form the template
