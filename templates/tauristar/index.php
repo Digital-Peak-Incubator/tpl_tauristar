@@ -14,7 +14,7 @@ JLoader::import('tauristar.helpers.tauristar', JPATH_THEMES);
 JHtml::_('jquery.framework');
 JHtml::_('bootstrap.framework');
 
-$params = JFactory::getApplication()->getTemplate(true)->params;
+$params = $this->params;
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
