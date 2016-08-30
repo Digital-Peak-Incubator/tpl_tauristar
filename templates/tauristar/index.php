@@ -28,148 +28,29 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 
 	<body>
 
-		<header id="header">
-			<div class="container">
-
-				<?php if ($this->countModules('header')) :?>
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="header" style="xhtml" />
-					</div>
-				<?php endif; ?>
-	
-				<?php if ($this->countModules('logo')) :?>
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="logo" style="xhtml" />
-					</div>
-				<?php endif; ?>
-	
-				<?php if ($this->countModules('navigation')) : ?>
-	
-					<nav class="navigation" role="navigation">
-						<jdoc:include type="modules" name="navigation" style="none" />
-					</nav>
-	
-				<?php endif; ?>
-
-			</div>
-		</header>
-	
-		<?php if ($this->countModules('top')) :?>
-			<section id="top">
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="top" style="xhtml" />				
-					</div>
-				</div>
-			</section>
+		<?php if ($this->countModules('header')) :?>
+			<header>
+				<jdoc:include type="modules" name="header" />			
+			</header>
 		<?php endif; ?>
-		
-		<?php if ($this->countModules('feature')) :?>
-			<section id="feature">
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="feature" style="xhtml" />				
-					</div>
-				</div>
-			</section>
+
+
+		<?php if ($this->countModules('navigation')) : ?>
+			<nav class="navigation" role="navigation">
+				<jdoc:include type="modules" name="navigation" />
+			</nav>
 		<?php endif; ?>
 	
-		<section id="main-section">
-			<div class="container">
-			
-				<div id="system-messages">
-					<jdoc:include type="message" />
-				</div>
-				
-				<?php if ($this->countModules('breadcrumbs')) : ?>
-					<div id="breadcrumbs">
-						<div class="container">
-							<jdoc:include type="modules" name="breadcrumbs" />
-						</div>
-					</div>
-				<?php endif; ?>
-	
-				<?php if ($this->countModules('sidebar-left')) : ?>
-					<aside id="sidebar-left">
-						<div class="container">
-							<jdoc:include type="modules" name="sidebar-left" />
-						</div>
-					</aside>
-				<?php endif; ?>
-	
-				<?php if ($this->countModules('above-content')) :?>
-					<section id="above-content">
-						<div class="container">
-							<div class="row">
-								<jdoc:include type="modules" name="above-content" style="xhtml" />				
-							</div>
-						</div>
-					</section>
-				<?php endif; ?>
-				
-				<main id="content" role="main" class="">
-					<article>
-						<jdoc:include type="component" />
-					</article>
-				</main>
-				
-				<?php if ($this->countModules('below-content')) :?>
-					<section id="below-content">
-						<div class="container">
-							<div class="row">
-								<jdoc:include type="modules" name="below-content" style="xhtml" />				
-							</div>
-						</div>
-					</section>
-				<?php endif; ?>
-	
-				<?php if ($this->countModules('sidebar-right')) : ?>
-					<aside id="sidebar-right">
-						<div class="container">
-							<jdoc:include type="modules" name="sidebar-right" />
-						</div>
-					</aside>
-				<?php endif; ?>
-	
-			</div>
+		<section>
+			<jdoc:include type="message" />
+			<jdoc:include type="component" />				
 		</section>
-	
-		<?php if ($this->countModules('sub-feature')) : ?>
-			<section id="sub-feature">
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="sub-feature" style="xhtml" />
-					</div>
-				</div>
-			</section>
+
+		<?php if ($this->countModules('footer')) : ?>		
+			<footer>
+				<jdoc:include type="modules" name="footer" />	
+			</footer>
 		<?php endif; ?>
-	
-		<?php if ($this->countModules('bottom')) : ?>
-			<section id="bottom">
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="bottom" style="xhtml" />
-					</div>
-				</div>
-			</section>
-		<?php endif; ?>
-	
-		<footer id="footer">
-			<div class="container">
-				
-				<?php if ($this->countModules('footer')) : ?>
-					<jdoc:include type="modules" name="footer" style="xhtml" />
-				<?php endif; ?>
-			
-				<div id="copyright">
-					&copy; <?php echo date('Y'); ?> <?php echo JFactory::getApplication()->get('sitename'); ?>
-					<i class="fa fa-joomla" aria-hidden="true"></i>
-				</div>
-				
-			</div>
-		</footer>
 	
 	</body>
 	

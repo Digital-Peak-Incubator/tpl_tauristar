@@ -21,19 +21,8 @@
 	</files>
 	<positions>
 		<position>header</position>
-		<position>logo</position>
 		<position>navigation</position>
-		<position>top</position>
-		<position>feature</position>
-		<position>breadcrumbs</position>
-		<position>above-content</position>
-		<position>sidebar-left</position>
-		<position>sidebar-right</position>
-		<position>below-content</position>
-		<position>sub-feature</position>
-		<position>bottom</position>
 		<position>footer</position>
-		<position>copyright</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_tauristar.ini</language>
@@ -41,6 +30,23 @@
 	</languages>
 	<config>
 		<fields name="params">
+			
+			<fieldset name="styling">
+				<field 
+					name="$template-color" 
+					type="color" 
+					default="#08C"
+					label="Color"
+					description="Color" />
+
+				<field 
+					name="$template-font-family" 
+					type="text" 
+					default="Helvetica, Arial, sans-serif"
+					label="Header Font"
+					description="Header font name or font stack: eg: Helvetica, Arial, sans-serif" />				
+			</fieldset>
+			
 			<fieldset name="advanced">
 				<field
 					name="mode"
