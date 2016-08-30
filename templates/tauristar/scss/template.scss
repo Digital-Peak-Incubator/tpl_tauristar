@@ -6,6 +6,7 @@ $fa-font-path: "../../../media/jui/fa4/fonts";
 $icomoon-font-path: "../../../media/jui/fonts";
 @import "icomoon";
 
+/* Basic Template Styling */
 
 /* Add Header Font */
 h1,h2,h3,h4,h5,h6 {
@@ -17,12 +18,12 @@ a {
 	color: $template-color;
 }
 
-/* Basic Sectional Styling */
-header, nav,section, footer {
+/* Basic Section Styling */
+header, nav, section, footer {
 	
 	padding: 15px;
 	border-top: 1px $template-color solid;
 	
-	// Clearfix		
+	// Clearfix
 	@include clearfix;
 }

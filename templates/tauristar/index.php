@@ -27,7 +27,6 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 	</head>
 
 	<body>
-
 		<?php if ($this->countModules('header')) :?>
 			<header>
 				<jdoc:include type="modules" name="header" />			
@@ -51,7 +50,6 @@ $params = JFactory::getApplication()->getTemplate(true)->params;
 				<jdoc:include type="modules" name="footer" />	
 			</footer>
 		<?php endif; ?>
-	
 	</body>
 	
 </html>
