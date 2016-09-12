@@ -9,6 +9,6 @@
 
 defined('JPATH_BASE') or die;
 
-$styles = array('message' => 'success', 'notice' => 'info', 'warning' => 'warning', 'error' => 'danger');
+$displayData['alert'] = array('message' => 'success', 'notice' => 'info', 'warning' => 'warning', 'error' => 'danger');
 
-require_once 'message.php';
+echo $this->render($displayData, false);

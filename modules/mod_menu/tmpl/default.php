@@ -18,12 +18,12 @@ if (($tagId = $params->get('tag_id', '')))
 
 // The menu class is deprecated. Use nav instead
 
-if (!isset($frameworkClass))
+if (!isset($module->frameworkClass))
 {
-	$frameworkClass = 'nav';
+	$module->frameworkClass = 'nav';
 }
 ?>
-<ul class="<?php echo $frameworkClass; ?> menu<?php echo $class_sfx; ?>"<?php echo $id; ?>>
+<ul class="<?php echo $module->frameworkClass; ?> menu<?php echo $class_sfx; ?>"<?php echo $id; ?>>
 <?php foreach ($list as $i => &$item)
 {
 	$class = 'item-' . $item->id;

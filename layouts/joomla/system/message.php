@@ -11,16 +11,17 @@ defined('JPATH_BASE') or die;
 
 $msgList = $displayData['msgList'];
 
-if (!isset($styles))
+$alert = array('message' => 'success', 'notice' => 'notice', 'warning' => 'warning', 'error' => 'error');
+if (isset($displayData['alert']))
 {
-	$styles = array('message' => 'success', 'notice' => 'notice', 'warning' => 'warning', 'error' => 'error');
+	$alert = $displayData['alert'];
 }
 ?>
 <div id="system-message-container">
 	<?php if (is_array($msgList) && !empty($msgList)) : ?>
 		<div id="system-message">
 			<?php foreach ($msgList as $type => $msgs) : ?>
-				<div class="alert alert-<?php echo key_exists($type, $styles) ? $styles[$type] : $type; ?>">
+				<div class="alert alert-<?php echo key_exists($type, $alert) ? $alert[$type] : $type; ?>">
 					<?php // This requires JS so we should add it trough JS. Progressive enhancement and stuff. ?>
 					<a class="close" data-dismiss="alert">×</a>
 

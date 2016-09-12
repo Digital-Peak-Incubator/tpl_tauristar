@@ -84,13 +84,13 @@ class JLayoutFile extends JLayoutBase
 	/**
 	 * Method to render the layout.
 	 *
-	 * @param   array  $displayData  Array of properties available for use inside the layout file to build the displayed output
-	 *
-	 * @return  string  The necessary HTML to display the layout
+	 * @param   array    $displayData           Array of properties available for use inside the layout file to build the displayed output
+	 * @param   boolean  $includeFrameworkPath  Include the framework lookup
+	 * @return  string   The necessary HTML to display the layout
 	 *
 	 * @since   3.0
 	 */
-	public function render($displayData = array())
+	public function render($displayData = array(), $includeFrameworkPath = true)
 	{
 		$this->clearDebugMessages();
 
@@ -104,7 +104,7 @@ class JLayoutFile extends JLayoutBase
 		}
 
 		// Check possible overrides, and build the full path to layout file
-		$path = $this->getPath();
+		$path = $this->getPath($includeFrameworkPath);
 
 		if ($this->isDebugEnabled())
 		{
@@ -128,11 +128,13 @@ class JLayoutFile extends JLayoutBase
 	/**
 	 * Method to finds the full real file path, checking possible overrides
 	 *
-	 * @return  string  The full path to the layout file
+	 * @param   boolean  $includeFrameworkPath  Include the framework lookup
+	 *
+	 * @return  string   The full path to the layout file
 	 *
 	 * @since   3.0
 	 */
-	protected function getPath()
+	protected function getPath($includeFrameworkPath = true)
 	{
 		JLoader::import('joomla.filesystem.path');
 
@@ -156,11 +158,21 @@ class JLayoutFile extends JLayoutBase
 			return;
 		}
 
+		$framework = JFactory::getApplication()->getTemplate(true)->params->get('framework');
 		$hash = md5(
 			json_encode(
 				array(
 					'paths'    => $includePaths,
 					'suffixes' => $suffixes,
+				)
+			)
+		);
+		$frameworkHash = md5(
+			json_encode(
+				array(
+					'framework' => $framework,
+					'paths'     => $includePaths,
+					'suffixes'  => $suffixes,
 				)
 			)
 		);
@@ -174,7 +186,6 @@ class JLayoutFile extends JLayoutBase
 
 		$this->addDebugMessage('<strong>Include Paths:</strong> ' . print_r($includePaths, true));
 
-		$framework = JApplicationHelper::getActiveFramework();
 		$layoutPath = str_replace('.', '/', $this->layoutId);
 
 		// Search for suffixed versions. Example: tags.j31.php
@@ -184,7 +195,7 @@ class JLayoutFile extends JLayoutBase
 
 			foreach ($suffixes as $suffix)
 			{
-				if ($foundLayout = $this->findLayout($layoutPath . '.' . $suffix . '.' . $framework . '.php', $layoutId, $hash))
+				if ($includeFrameworkPath && $foundLayout = $this->findLayout($layoutPath . '.' . $suffix . '.' . $framework . '.php', $layoutId, $frameworkHash))
 				{
 					return $foundLayout;
 				}
@@ -196,7 +207,7 @@ class JLayoutFile extends JLayoutBase
 		}
 
 		// Standard version
-		if ($foundLayout = $this->findLayout($layoutPath . '.' . $framework . '.php', $layoutId, $hash))
+		if ($includeFrameworkPath && $foundLayout = $this->findLayout($layoutPath . '.' . $framework . '.php', $layoutId, $frameworkHash))
 		{
 			return $foundLayout;
 		}

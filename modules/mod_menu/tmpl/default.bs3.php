@@ -9,5 +9,6 @@
 
 defined('_JEXEC') or die;
 
-$frameworkClass = 'nav navbar-nav';
-require_once 'default.php';
+$module->frameworkClass = 'nav navbar-nav';
+
+require JModuleHelper::getLayoutPath($module->module, 'default', false);

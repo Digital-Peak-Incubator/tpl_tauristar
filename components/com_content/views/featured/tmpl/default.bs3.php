@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-$rowClass    = 'row';
-$columnClass = 'col-md-';
+$this->rowClass    = 'row';
+$this->columnClass = 'col-md-';
 
-require_once 'default.php';
+echo $this->loadTemplate(null, false);

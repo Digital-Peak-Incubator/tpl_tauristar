@@ -13,6 +13,15 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 
 JHtml::_('behavior.caption');
 
+if (!isset($this->rowClass))
+{
+	$this->rowClass = 'row-fluid';
+}
+if (!isset($this->cellClass))
+{
+	$this->cellClass = 'span';
+}
+
 // If the page class is defined, add to class as suffix.
 // It will be a separate class if the user starts it with a space
 ?>
@@ -53,21 +62,12 @@ JHtml::_('behavior.caption');
 		$key = ($key - $leadingcount) + 1;
 		$rowcount = (((int) $key - 1) % (int) $this->columns) + 1;
 		$row = $counter / $this->columns;
-		
-		if (!isset($rowClass))
-		{
-			$rowClass = 'row-fluid';
-		}
-		if (!isset($columnClass))
-		{
-			$columnClass = 'row-fluid';
-		}
 
 		if ($rowcount == 1) : ?>
 
-		<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-' . $row . ' ' . $rowClass; ?> ">
+		<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-' . $row . ' ' . $this->rowClass; ?> ">
 		<?php endif; ?>
-			<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> <?php echo $columnClass . round((12 / $this->columns));?>"
+			<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?> <?php echo $this->columnClass . round((12 / $this->columns));?>"
 				itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
 			<?php
 					$this->item = &$item;
