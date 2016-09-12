@@ -822,7 +822,7 @@ class JViewLegacy extends JObject
 			default:
 				$filename = strtolower($parts['name']) . '.php';
 				break;
-		}JFactory::getApplication()->enqueueMessage('hallo', 'error');
+		}
 
 		return $filename;
 	}
