@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="section1" label="TPL_TAURISTAR_MODULE_POSITION_SETTINGS">
+		<field
+			name="position"
+			type="text"
+			label="TPL_TAURISTAR_MODULE_POSITION_NAME"
+			default=""
+			required="true"
+		/>
+		<field
+			name="columns"
+			type="list"
+			label="TPL_TAURISTAR_MODULE_POSITION_COLUMNS"
+			default=""
+		>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="6">6</option>
+			<option value="12">12</option>
+		</field>
+		<field
+			name="width"
+			type="list"
+			label="TPL_TAURISTAR_MODULE_POSITION_WIDTH"
+			default="fluid"
+		>
+			<option value="fixed">TPL_TAURISTAR_MODULE_POSITION_WIDTH_FIXED</option>
+			<option value="fluid">TPL_TAURISTAR_MODULE_POSITION_WIDTH_FLUID</option>
+		</field>
+	</fieldset>
+</form>

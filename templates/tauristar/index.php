@@ -47,27 +47,19 @@ $params = $this->params;
 				</nav>
 			</div>
 		</div>
-		<?php if ($this->countModules('top')) : ?>
-			<div id="top">
-				<div class="container">
-					<div class="row">
-						<jdoc:include type="modules" name="top" style="xhtml" />
-					</div>
-				</div>
-			</div>
-			<hr class="soften">
-		<?php endif; ?>
+		<?php echo TauristarHelper::getDynamicPosition($params->get('top', array())); ?>
+		<hr class="soften">
 		<div id="bodysection">
 			<div class="container">
 				<div class="row">
-					<?php $left  = $this->countModules('sidebar-left'); ?>
-					<?php $right = $this->countModules('sidebar-right'); ?>
+					<?php $left  = TauristarHelper::getDynamicPosition($params->get('sidebar-left', array())); ?>
+					<?php $right  = TauristarHelper::getDynamicPosition($params->get('sidebar-right', array())); ?>
 					<?php $sidebarWidth = $params->get('sidebar-width', 2); ?>
 					<?php $contentSpan  = $right ? 12 - $sidebarWidth : 12; ?>
 					<?php $contentSpan  = $left ? $contentSpan - $sidebarWidth : $contentSpan; ?>
 					<?php if ($left) : ?>
 						<div class="col-md-<?php echo $sidebarWidth; ?>">
-							<jdoc:include type="modules" name="sidebar-left" style="xhtml" />
+							<?php echo $left; ?>
 						</div>
 					<?php endif; ?>
 					<div class="content col-md-<?php echo $contentSpan; ?>">
@@ -76,7 +68,7 @@ $params = $this->params;
 					</div>
 					<?php if ($right) : ?>
 						<div class="col-md-<?php echo $sidebarWidth; ?>">
-							<jdoc:include type="modules" name="sidebar-right" style="xhtml" />
+							<?php echo $right; ?>
 						</div>
 					<?php endif; ?>
 				</div>
@@ -89,13 +81,7 @@ $params = $this->params;
 				</div>
 			</div>
 		<?php endif; ?>
-		<?php if ($this->countModules('bottom')) : ?>
-			<div id="bottom">
-				<div class="container">
-					<jdoc:include type="modules" name="bottom" style="html5"/>
-				</div>
-			</div>
-		<?php endif; ?>
+		<?php echo TauristarHelper::getDynamicPosition($params->get('bottom', array())); ?>
 		<footer id="footer">
 			<div class="container">
 				<?php if ($this->countModules('footer')) : ?>
