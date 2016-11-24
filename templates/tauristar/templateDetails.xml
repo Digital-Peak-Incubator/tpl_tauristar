@@ -20,14 +20,20 @@
 		<folder>css</folder>
 	</files>
 	<positions>
+		<position>header</position>
 		<position>logo</position>
-		<position>menu</position>
-		<position>breadcrumbs</position>
+		<position>navigation</position>
 		<position>top</position>
+		<position>feature</position>
+		<position>breadcrumbs</position>
+		<position>above-content</position>
 		<position>sidebar-left</position>
 		<position>sidebar-right</position>
+		<position>below-content</position>
+		<position>sub-feature</position>
 		<position>bottom</position>
 		<position>footer</position>
+		<position>copyright</position>
 	</positions>
 	<languages folder="language">
 		<language tag="en-GB">en-GB/en-GB.tpl_tauristar.ini</language>
@@ -35,15 +41,6 @@
 	</languages>
 	<config>
 		<fields name="params">
-			<fieldset name="scaffolding" label="TPL_TAURISTAR_SCAFFOLDING_FIELDSET_LABEL">
-				<field
-					name="$body-bg"
-					type="color"
-					label="TPL_TAURISTAR_SCSS_VARIABLE_BODY_BG_LABEL"
-					description="TPL_TAURISTAR_SCSS_VARIABLE_BODY_BG_DESC"
-					default="#fff"
-				/>
-			</fieldset>
 			<fieldset name="advanced">
 				<field
 					name="mode"
